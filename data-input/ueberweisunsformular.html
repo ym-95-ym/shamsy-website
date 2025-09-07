@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Überweisungsformular - ShamSy e.V.</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 20px;
+        }
+        .logo {
+            color: #f39c12;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .form-label {
+            width: 140px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-right: 15px;
+        }
+        .form-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .form-input:focus {
+            border-color: #f39c12;
+            outline: none;
+        }
+        .readonly {
+            background-color: #f8f9fa;
+            color: #666;
+        }
+        .betrag-input {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f39c12;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .btn {
+            background: #f39c12;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            flex: 1;
+        }
+        .btn:hover {
+            background: #e67e22;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .qr-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">ShamSy e.V.</div>
+            <h2>Überweisungsformular</h2>
+            <p>Spende für den Wiederaufbau Syriens</p>
+        </div>
+
+```
+    <div class="form-row">
+        <div class="form-label">Empfänger:</div>
+        <input type="text" class="form-input readonly" value="ShamSy e.V." readonly>
+    </div>
+
+    <div class="form-row">
+        <div class="form-label">IBAN:</div>
+        <input type="text" class="form-input readonly" value="DE72 7605 0101 0015 7958 67" readonly>
+    </div>
+
+    <div class="form-row">
+        <div class="form-label">BIC:</div>
+        <input type="text" class="form-input readonly" value="SSKNDE77XXX" readonly>
+    </div>
+
+    <div class="form-row">
+        <div class="form-label">Betrag:</div>
+        <input type="number" id="betrag" class="form-input betrag-input" min="1" step="0.01" placeholder="0,00">
+        <span style="margin-left: 10px; font-weight: bold;">EUR</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-label">Verwendungszweck:</div>
+        <input type="text" id="verwendungszweck" class="form-input" placeholder="Spende ShamSy e.V." value="Spende ShamSy e.V.">
+    </div>
+
+    <div class="form-row">
+        <div class="form-label">Ihr Name:</div>
+        <input type="text" id="absender" class="form-input" placeholder="Max Mustermann">
+    </div>
+
+    <div class="btn-group no-print">
+        <button class="btn" onclick="window.print()">Drucken</button>
+        <button class="btn btn-secondary" onclick="copyToClipboard()">Daten kopieren</button>
+        <button class="btn btn-secondary" onclick="window.close()">Schließen</button>
+    </div>
+
+    <div class="note">
+        <strong>Hinweise:</strong><br>
+        • Füllen Sie das Formular aus und drucken Sie es für Ihre Bank<br>
+        • Online-Banking: Kopieren Sie die Bankdaten in Ihr Banking-Portal<br>
+        • ShamSy e.V. ist gemeinnützig - Spendenbescheinigungen auf Anfrage<br>
+        • Kontakt: info.shamsyr@gmail.com
+    </div>
+
+    <div class="qr-section no-print">
+        <p><strong>Schnelle Überweisung per Banking-App:</strong></p>
+        <div id="qr-code-placeholder" style="margin: 10px 0;">
+            [QR-Code würde hier generiert - benötigt zusätzliche JavaScript-Bibliothek]
+        </div>
+        <small>Scannen Sie den QR-Code mit Ihrer Banking-App</small>
+    </div>
+</div>
+
+<script>
+    // URL-Parameter auslesen und Formular vorausfüllen
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount');
+    const recipient = urlParams.get('recipient');
+    
+    if (amount) {
+        document.getElementById('betrag').value = amount;
+    }
+
+    // Daten in Zwischenablage kopieren
+    function copyToClipboard() {
+        const betrag = document.getElementById('betrag').value;
+        const verwendungszweck = document.getElementById('verwendungszweck').value;
+        const absender = document.getElementById('absender').value;
+        
+        const text = `
+```
+
+Empfänger: ShamSy e.V.
+IBAN: DE72 7605 0101 0015 7958 67
+BIC: SSKNDE77XXX
+Betrag: ${betrag} EUR
+Verwendungszweck: ${verwendungszweck}
+Absender: ${absender}
+`.trim();
+
+```
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Überweisungsdaten wurden in die Zwischenablage kopiert!');
+        }).catch(() => {
+            alert('Kopieren fehlgeschlagen. Bitte manuell kopieren.');
+        });
+    }
+
+    // Automatisch Fokus auf Betrag setzen wenn leer
+    window.onload = function() {
+        if (!document.getElementById('betrag').value) {
+            document.getElementById('betrag').focus();
+        }
+    }
+</script>
+```
+
+</body>
+</html>
