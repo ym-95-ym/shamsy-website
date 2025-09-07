@@ -969,7 +969,7 @@ function generateTransferForm() {
     }
     
     // URL zum Überweisungsformular mit Parametern
-    const formUrl = `./data-input/ueberweisungsformular.html?amount=${amount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
+    const formUrl = `./data-input/trasfer.html?amount=${amount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
     
     // Öffne in neuem Tab
     window.open(formUrl, '_blank');
@@ -980,7 +980,7 @@ function generateTransferForm() {
 
 <!-- 
 <div style="margin-top: 1.5rem; text-align: center;">
-    <a href="./data-input/ueberweisungsformular.pdf" target="_blank" class="btn-option" style="width: 100%; text-decoration: none; display: block;">
+    <a href="./data-input/trasfer.pdf" target="_blank" class="btn-option" style="width: 100%; text-decoration: none; display: block;">
         Überweisungsformular (PDF)
     </a>
 </div>
@@ -989,7 +989,7 @@ function generateTransferForm() {
 <!-- Erweiterte Version: Vorausgefüllte Beträge aus der Spenden-Box
 // Alternative Funktion für vordefiniete Beträge
 function createTransferWithAmount(predefinedAmount) {
-    const formUrl = `./data-input/ueberweisungsformular.html?amount=${predefinedAmount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
+    const formUrl = `./data-input/trasfer.html?amount=${predefinedAmount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
     window.open(formUrl, '_blank');}
 -->
                 </div>
