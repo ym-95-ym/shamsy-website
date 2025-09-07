@@ -894,11 +894,11 @@
                 <!-- Aktive Mitgliedschaft -->
                 <div class="option-card">
                     <h3>Aktive Mitgliedschaft</h3>
-                    <p>Werden Sie Teil unseres Teams und gestalten Sie aktiv den Wiederaufbau Syriens mit. Als aktives Mitglied haben Sie Stimmrecht und können bei Entscheidungen mitwirken.</p>
+                    <p>Werde Teil unseres Teams und gestalte aktiv den Wiederaufbau Syriens mit. Als aktives Mitglied hast Du Stimmrecht und kannst bei Entscheidungen mitwirken.</p>
                     <p><strong>Mitgliedsbeitrag: 5€/Monat</strong></p>
                     <div class="contact-info">
                         <strong>So geht's:</strong><br>
-                        Senden Sie uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Aktive Mitgliedschaft" und wir senden Ihnen die Unterlagen zu.
+                        Sende uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Aktive Mitgliedschaft" und wir senden Dir die Unterlagen zu.
                     </div>
                     <a href="mailto:info.shamsyr@gmail.com?subject=Aktive%20Mitgliedschaft" class="btn-option">Jetzt Mitglied werden</a>
                 </div>
@@ -906,11 +906,11 @@
                 <!-- Unterstützende Mitgliedschaft -->
                 <div class="option-card">
                     <h3>Unterstützende Mitgliedschaft</h3>
-                    <p>Treten Sie ShamSy bei, um bei Renovierungsaktionen, Aufbauarbeiten oder humanitären Aktionen teilnehmen zu können. Perfekt für alle, die praktisch helfen möchten.</p>
-                    <p><strong>Beitragsfrei - nur Ihr Engagement zählt!</strong></p>
+                    <p>Tritt ShamSy bei, um bei Renovierungsaktionen, Aufbauarbeiten oder humanitären Aktionen teilnehmen zu können. Perfekt für alle, die praktisch oder organisatorisch helfen möchten.</p>
+                    <p><strong>Beitragsfrei - nur Deine Engagement zählt!</strong></p>
                     <div class="contact-info">
                         <strong>So geht's:</strong><br>
-                        Senden Sie uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Unterstützende Mitgliedschaft" und Ihren Interessen/Fähigkeiten.
+                        Sende uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Unterstützende Mitgliedschaft" und Deine Interessen/Fähigkeiten.
                     </div>
                     <a href="mailto:info.shamsyr@gmail.com?subject=Unterstützende%20Mitgliedschaft" class="btn-option">Jetzt mitmachen</a>
                 </div>
@@ -943,6 +943,58 @@
                         IBAN: DE72 7605 0101 0015 7958 67<br>
                         BIC: SSKNDE77XXX
                     </div>
+                    <div style="margin-top: 1.5rem; text-align: center;">
+    <button onclick="generateTransferForm()" class="btn-option" style="width: 100%;">
+        Überweisungsformular erstellen
+    </button>
+</div>
+```
+
+</div>
+
+<!-- JavaScript für Spenden-Button -->
+
+<script>
+function generateTransferForm() {
+    // Betrag aus den Eingabefeldern holen
+    const einmalspende = document.getElementById('einmalspende').value;
+    const dauerauftrag = document.getElementById('dauerauftrag').value;
+    
+    // Bestimme welcher Betrag verwendet werden soll
+    let amount = '';
+    if (einmalspende && einmalspende > 0) {
+        amount = einmalspende;
+    } else if (dauerauftrag && dauerauftrag > 0) {
+        amount = dauerauftrag;
+    } else {
+        alert('Bitte geben Sie einen Spendenbetrag ein.');
+        return;
+    }
+    
+    // URL zum Überweisungsformular mit Parametern
+    const formUrl = `./data-input/ueberweisungsformular.html?amount=${amount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
+    
+    // Öffne in neuem Tab
+    window.open(formUrl, '_blank');
+}
+</script>
+
+<!-- Alternative: Direkter Link zu PDF-Formular -->
+
+<!-- 
+<div style="margin-top: 1.5rem; text-align: center;">
+    <a href="./data-input/ueberweisungsformular.pdf" target="_blank" class="btn-option" style="width: 100%; text-decoration: none; display: block;">
+        Überweisungsformular (PDF)
+    </a>
+</div>
+-->
+
+<!-- Erweiterte Version: Vorausgefüllte Beträge aus der Spenden-Box
+// Alternative Funktion für vordefiniete Beträge
+function createTransferWithAmount(predefinedAmount) {
+    const formUrl = `./data-input/ueberweisungsformular.html?amount=${predefinedAmount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
+    window.open(formUrl, '_blank');}
+-->
                 </div>
 
                 <!-- Projekt Spenden -->
