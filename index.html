@@ -944,7 +944,7 @@
                         BIC: SSKNDE77XXX
                     </div>
                     <div style="margin-top: 1.5rem; text-align: center;">
-    <button onclick="generateTransferForm()" class="btn-option">Spenden</button>
+    <a onclick="generateTransferForm()" class="btn-option">Spenden</a>
 </div>
 
 <!-- JavaScript für Spenden-Button -->
@@ -957,9 +957,9 @@ function generateTransferForm() {
     
     // Bestimme welcher Betrag verwendet werden soll
     let amount = '';
-    if (einmalspende && einmalspende > 0) {
+    if (einmalspende > 0) {
         amount = einmalspende;
-    } else if (dauerauftrag && dauerauftrag > 0) {
+    } else if (dauerauftrag > 0) {
         amount = dauerauftrag;
     } else {
         alert('Bitte geben Sie einen Spendenbetrag ein.');
