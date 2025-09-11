@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShamSy - Aktuelle Projekte | Energie, Bildung, Gesundheit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(39, 174, 96, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #27AE60;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #27AE60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #E8F5E8 0%, #D5F4E6 100%);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Projects Grid */
+        .projekte-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .projekt-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(39, 174, 96, 0.1);
+        }
+
+        .projekt-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .projekt-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+        }
+
+        .projekt-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .projekt-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(39, 174, 96, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .projekt-content {
+            padding: 2.5rem;
+        }
+
+        .projekt-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .projekt-price {
+            color: #27AE60;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .projekt-content p {
+            color: #5d6d7e;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .projekt-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-small {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            border-radius: 25px;
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-participate {
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+            color: white;
+            border: none;
+        }
+
+        .btn-participate:hover {
+            background: linear-gradient(135deg, #1E8449, #27AE60);
+            transform: translateY(-2px);
+        }
+
+        .projekt-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+            padding: 1rem;
+            background: rgba(39, 174, 96, 0.05);
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27AE60;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        /* Back to Home */
+        .back-home {
+            background: linear-gradient(135deg, #E8F5E8 0%, #D5F4E6 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .back-home h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .back-home p {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #27AE60, #2ECC71);
+            color: white;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #1E8449, #27AE60);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        footer .logo {
+            color: #27AE60;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        footer p {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            color: #bdc3c7;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #27AE60;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #2ECC71;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.8rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .projekte-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projekt-actions {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">ShamSy</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="geschichte.html">Geschichte</a></li>
+                <li><a href="projekte.html" class="active">Aktuelle Projekte</a></li>
+                <li><a href="vergangene-projekte.html">Projekte vor 2024</a></li>
+                <li><a href="mitmachen.html">Mitmachen</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Aktuelle Projekte</h1>
+            <p class="page-subtitle">Unsere Bereiche: Energie, Bildung, Gesundheit - für einen nachhaltigen Wiederaufbau, mit und für die Menschen</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <h2 class="section-title">Kleinprojekte</h2>
+            
+            <div class="projekte-grid">
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/help.jpg" alt="Humanitäre Hilfe">
+                        <div class="projekt-tag">Humanitär</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Monatsgehalt an Familie in Not schenken</h3>
+                        <div class="projekt-price">80 € - einmalig</div>
+                        <p>JA! Tatsächlich sind die Gehälter in Syrien sehr niedrig, trotz neulicher Erhöhung seit Dezember 2024. Die Waren und Grundnahrungsmittel aber nicht. Sogar an mehreren Stellen wie in Deutschland!<br>
+                            Mit einer -für Deutschland- nicht allzu hohen Summe können Sie die Möglichkeiten einer Familie in Not für einen Monat zu verdoppeln.
+                        </p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/help.jpg" alt="Kinderpatenschaft">
+                        <div class="projekt-tag">Humanitär</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Kind Patenschaft - 1 Jahr Essen und Bildung</h3>
+                        <div class="projekt-price">13 € mtl.</div>
+                        <p>Finanzierung von Lebensunterhalt und Bildungskosten eines Kind in Syrien. Durch direkte Kommunikation mit unseren lokalen Partnern können wir für maximale Transparenz sorgen und sicherstellen, das das Geld an den richtigen Stellen kommt.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/schule.jpg" alt="Schule Rehabilitierung">
+                        <div class="projekt-tag">Bildung</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Schule Rehabilitierung - Der El-Asafir</h3>
+                        <div class="projekt-price">5.000 € (Teilspenden möglich!)</div>
+                        <p>Unterstützung und Weiterbildung des Bildungskaders, Sanierung und Reparatur der Schule sowie Sicherung ihrer Versorgung.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 8rem;">Großprojekte: Für Sponsors und Crowd Funding</h2>
+            <p class="section-subtitle">Teilspenden möglich!</p>
+            
+            <div class="projekte-grid">
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/pv-sys.jpg" alt="Solar-System">
+                        <div class="projekt-tag">Energie & Bildung</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Der El-Asafir Gemeinschaftsinfrastruktur</h3>
+                        <div class="projekt-price">400.000 €</div>
+                        <p>250 kW Solarsystem für eine ländliche Schule, landwirtschaftlichen Hub und Wohnhäuser. Über 10.000 Menschen, 500 Schüler und 50 landwirtschaftliche Betriebe erhalten stabile Elektrizität für Bildung und Produktion.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                        <div class="projekt-stats">
+                            <div class="stat">
+                                <span class="stat-number">10.000</span>
+                                <div class="stat-label">Menschen mit Strom versorgen</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">500+</span>
+                                <div class="stat-label">Schüler mit Strom versorgen</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">>50</span>
+                                <div class="stat-label">landwirtschaftliche Betriebe mit Strom versorgen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/douma-hospital-after.jpg" alt="Douma Hospital">
+                        <div class="projekt-tag">Gesundheit</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Douma National Hospital Renovierung</h3>
+                        <div class="projekt-price">350.000 €</div>
+                        <p>Wiederherstellung Teil der Kapazitäten eines Krankenhauses, das über 1 Million Patienten jährlich versorgt. Das Krankenhaus, nach 12.2024 mit Dronenaufnahme dokumentiert, wurde vom alten Regime komplett bombardiert. Unser Partner NGO (Al-Sahha al-Khairiyah) in Douma hat nach der Zerstörung eine Multi-Fachklinik eingerichtet und will das weiterbauen und zu einem Krankenhaus rehabilitieren. Heute wollen wir mit dem Wiederaufbau unterstützen und planen Anschaffung medizinischer Geräten z.B., CT-Scanner und einem voll-integrierten Solarsystem.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                        <div class="projekt-stats">
+                            <div class="stat">
+                                <span class="stat-number">1 Mio+</span>
+                                <div class="stat-label">Patienten/Jahr</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Notwendig</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Nachhaltig</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/schule.jpg" alt="Schule Renovierung">
+                        <div class="projekt-tag">Bildung</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Renovierung von 5 Schulen in Douma</h3>
+                        <div class="projekt-price">250.000 €</div>
+                        <p>Sanierung von Schulen zu sicheren, hochwertigen Standards. 3.000+ Schüler erhalten verbesserte Bildungsumgebungen mit modernen Klassenzimmern, sanitären Anlagen und barrierefreiem Zugang.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                        <div class="projekt-stats">
+                            <div class="stat">
+                                <span class="stat-number">3000+</span>
+                                <div class="stat-label">Schüler</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">5</span>
+                                <div class="stat-label">Schulen</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Zukunftssicher</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projekt-card">
+                    <div class="projekt-image">
+                        <img src="./images/livestock.jpg" alt="Landwirtschaft">
+                        <div class="projekt-tag">Landwirtschaft</div>
+                    </div>
+                    <div class="projekt-content">
+                        <h3>Wiederherstellung der Lebensgrundlagen durch Viehzucht und Landwirtschaft</h3>
+                        <div class="projekt-price">65.000 €</div>
+                        <p>Bereitstellung von Nutztieren und Wiederherstellung von Ackerland zur Wiederbelebung lokaler Nahrungsmittelproduktion und Einkommenssteigerung. Durch die Zusammenarbeit mit örtlichen Komitees erfolgt eine gezielte Unterstützung bedürftiger Familien. Das Ziel ist die Förderung nachhaltiger Selbstständigkeit anstelle kurzfristiger Hilfsleistung.</p>
+                        <div class="projekt-actions">
+                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
+                        </div>
+                        <div class="projekt-stats">
+                            <div class="stat">
+                                <span class="stat-number">10</span>
+                                <div class="stat-label">Familien</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Nachhaltig</div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <div class="stat-label">Zukunftssicher</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section class="back-home">
+        <div class="container">
+            <h2>Bereit zu helfen?</h2>
+            <p>Werden Sie Teil unserer Mission und unterstützen Sie den Wiederaufbau Syriens.</p>
+            <a href="mitmachen.html" class="btn">Jetzt mitmachen</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <div class="logo">ShamSy</div>
+                <p>Die Sonne Syriens - Wiederaufbau in eigener Hand</p>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>info.shamsyr@gmail.com</p>
+                    <p>+49 911 43332925</p>
+                    <p>ShamSy e.V., Nürnberg, 90425</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Transparenz</h4>
+                    <a href="./data-input/satzung.pdf">Satzung & Policies</a>
+                    <a href="./data-input/projektberichte.pdf">Projektberichte</a>
+                    <a href="./data-input/finanzberichte.pdf">Finanzberichte</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Folgen Sie uns</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShamSy e.V. - Alle Rechte vorbehalten</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+
+</body>
+</html>
