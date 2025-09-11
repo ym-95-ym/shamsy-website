@@ -499,15 +499,15 @@
         <div class="container">
             <div>
                 <div class="logo">ShamSy</div>
-                <p>Die Sonne Syriens - Wiederaufbau in eigener Hand</p>
+                <a>Die Sonne Syriens - Wiederaufbau in eigener Hand</a>
             </div>
             
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Kontakt</h4>
-                    <p>info.shamsyr@gmail.com</p>
-                    <p>+49 911 43332925</p>
-                    <p>ShamSy e.V., Nürnberg, 90425</p>
+                    <a>info.shamsyr@gmail.com</a>
+                    <a>+49 911 43332925</a>
+                    <a>ShamSy e.V., Nürnberg, 90425</a>
                 </div>
                 <div class="footer-section">
                     <h4>Transparenz</h4>
@@ -545,22 +545,27 @@
 
         // Spenden-Button Funktion
         function generateTransferForm() {
-            const einmalspende = document.getElementById('einmalspende').value;
-            const dauerauftrag = document.getElementById('dauerauftrag').value;
-            
-            let amount = '';
-            if (einmalspende && einmalspende > 0) {
-                amount = einmalspende;
-            } else if (dauerauftrag && dauerauftrag > 0) {
-                amount = dauerauftrag;
-            } else {
-                alert('Bitte geben Sie einen Spendenbetrag ein.');
-                return;
-            }
-            
-            // Erstelle eine einfache Bestätigung
-            alert(`Vielen Dank für Ihre Spende von ${amount}€!\n\nBitte überweisen Sie den Betrag an:\nShamSy e.V.\nIBAN: DE72 7605 0101 0015 7958 67\nBIC: SSKNDE77XXX\n\nVerwendungszweck: Spende ShamSy`);
-        }
+    // Betrag aus den Eingabefeldern holen
+    const einmalspende = document.getElementById('einmalspende').value;
+    const dauerauftrag = document.getElementById('dauerauftrag').value;
+    
+    // Bestimme welcher Betrag verwendet werden soll
+    let amount = '';
+    if ('einmalspende > 0') {
+        amount = einmalspende;
+    } else if ('dauerauftrag > 0') {
+        amount = dauerauftrag;
+    } else {
+        alert('Bitte geben Sie einen Spendenbetrag ein.');
+        return;
+    }
+    
+    // URL zum Überweisungsformular mit Parametern
+    const formUrl = `./data-input/transfer.html?amount=${amount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
+    
+    // Öffne in neuem Tab
+    window.open(formUrl);
+}
 
         // Add scroll effect to navigation
         window.addEventListener('scroll', function() {
