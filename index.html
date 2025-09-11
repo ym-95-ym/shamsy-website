@@ -1,4 +1,4 @@
-o<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,9 @@ o<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #34495e;
+            color: #2c3e50;
             background: #ffffff;
         }
 
@@ -27,14 +27,14 @@ o<!DOCTYPE html>
         /* Navigation */
         nav {
             background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #ecf0f1;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(82, 196, 26, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         nav .container {
@@ -44,28 +44,34 @@ o<!DOCTYPE html>
         }
 
         .logo {
-            color: #f39c12;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            color: #52C41A;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            align-items: right;
-            gap: 1rem;
+            align-items: center;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: #34495e;
+            color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #f39c12;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #52C41A;
+            background: rgba(82, 196, 26, 0.1);
         }
 
         /* Hero Section */
@@ -76,7 +82,7 @@ o<!DOCTYPE html>
             text-align: center;
             color: white;
             position: relative;
-            background-color: #f39c12;
+            background: linear-gradient(135deg, #52C41A 0%, #73D13D 100%);
         }
 
         .hero-bg {
@@ -95,7 +101,7 @@ o<!DOCTYPE html>
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(243, 156, 18, 0.8), rgba(230, 126, 34, 0.75));
+            background: linear-gradient(rgba(82, 196, 26, 0.85), rgba(115, 209, 61, 0.8));
             z-index: 2;
         }
 
@@ -105,33 +111,34 @@ o<!DOCTYPE html>
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 2rem;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             font-weight: 300;
+            letter-spacing: -1px;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             color: white;
             line-height: 1.8;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 15px 35px;
+            padding: 18px 40px;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -139,178 +146,48 @@ o<!DOCTYPE html>
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
             text-align: center;
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .btn-primary {
-            background: #f39c12;
+            background: linear-gradient(135deg, #389E0D, #52C41A);
             color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 30px rgba(82, 196, 26, 0.4);
         }
 
         .btn-secondary {
-            background: white;
-            color: #34495e;
-            border: 2px solid white;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            font-weight: 300;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        /* Geschichte Section */
-        .geschichte {
-            background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%);
-        }
-
-        .destruction-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .destruction-img {
-            width: 100%;
-            height: 300px;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .destruction-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .img-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 2rem;
-            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
         }
 
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 4rem auto 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(180deg, #f39c12, #e67e22);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background: inherit;
-            width: 50%;
-            margin: 30px 0;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            border: 4px solid white;
-            top: 25px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -14px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -14px;
-        }
-
-        .timeline-content {
-            padding: 25px 35px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            border-left: 4px solid #f39c12;
-        }
-
-        .timeline-content h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .timeline-year {
-            color: #e67e22;
-            font-weight: bold;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content p {
-            color: #5d6d7e;
-            line-height: 1.7;
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
         }
 
         /* Quote Section */
         .quote-section {
-            background: linear-gradient(135deg, #f8c471 0%, #f39c12 100%);
-            color: white;
+            background: linear-gradient(135deg, #F6FFED 0%, #E6F7FF 100%);
+            color: #2c3e50;
             text-align: center;
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .quote {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-style: italic;
             margin-bottom: 2rem;
             max-width: 1000px;
@@ -318,315 +195,182 @@ o<!DOCTYPE html>
             margin-right: auto;
             line-height: 1.6;
             font-weight: 300;
+            color: #2c3e50;
         }
 
         .quote-author {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Impact Numbers */
-        .vergangene-projekte {
-            background: linear-gradient(135deg, #fdeaa7 0%, #f8c471 100%);
-            padding: 80px 0;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .impact-item {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .impact-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #e17055;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .impact-label {
-            color: #2d3436;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Projekte Section */
-        .projekte {
-            background: white;
-        }
-
-        .projekte-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .projekt-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #ecf0f1;
-        }
-
-        .projekt-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .projekt-image {
-            width: 100%;
-            height: 250px;
-            position: relative;
-        }
-
-        .projekt-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .projekt-tag {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(52, 152, 219, 0.9);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .projekt-content {
-            padding: 2rem;
-        }
-
-        .projekt-content h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
+            color: #52C41A;
         }
 
-        .projekt-content p {
-            color: #5d6d7e;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .projekt-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .btn-small {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            border-radius: 25px;
-            flex: 1;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .btn-donate {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .btn-participate {
-            background: transparent;
-            color: #3498db;
-            border: 2px solid #3498db;
-        }
-
-        .projekt-stats {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .stat {
-            text-align: center;
-            flex: 1;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #e67e22;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-top: 5px;
-        }
-
-        /* Mitmachen Section */
-        .mitmachen-section {
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-            color: white;
-            padding: 80px 0;
-        }
-
-        .spenden-stats {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .total-amount {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .stats-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .breakdown-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        .breakdown-amount {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .option-card {
+        /* Overview Section */
+        .overview {
+            padding: 120px 0;
             background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
             color: #2c3e50;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-weight: 300;
+            letter-spacing: -1px;
         }
 
-        .option-card h3 {
-            color: #f39c12;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .option-card p {
-            margin-bottom: 1.5rem;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #7f8c8d;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.6;
         }
 
-        .amount-input {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            align-items: center;
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .amount-input input {
-            padding: 10px;
-            border: 2px solid #f39c12;
-            border-radius: 5px;
-            font-size: 1rem;
-            width: 120px;
+        .overview-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(82, 196, 26, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .yearly-calc {
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 0.5rem;
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #52C41A, #73D13D);
         }
 
-        .contact-info {
-            background: rgba(243, 156, 18, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #f39c12;
-            margin-top: 1rem;
+        .overview-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-color: rgba(82, 196, 26, 0.3);
         }
 
-        .btn-option {
-            background: #f39c12;
+        .overview-card h3 {
+            color: #52C41A;
+            margin-bottom: 1.5rem;
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .overview-card p {
+            color: #5d6d7e;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card-btn {
+            background: linear-gradient(135deg, #52C41A, #73D13D);
             color: white;
-            padding: 12px 24px;
+            padding: 16px 32px;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
             transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
 
-        .btn-option:hover {
-            background: #e67e22;
-            transform: translateY(-2px);
+        .card-btn:hover {
+            background: linear-gradient(135deg, #389E0D, #52C41A);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(82, 196, 26, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        footer .logo {
+            color: #52C41A;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        footer p {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            color: #bdc3c7;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #52C41A;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #73D13D;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
-                display: true;
+                display: none;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .destruction-images {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0%;
-            }
-
-            .timeline-item::after {
-                left: 19px;
+                font-size: 1.2rem;
             }
 
             .cta-buttons {
@@ -635,19 +379,25 @@ o<!DOCTYPE html>
             }
 
             .btn {
-                width: 250px;
+                width: 280px;
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .quote {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
-            .projekt-actions {
-                flex-direction: column;
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
     </style>
@@ -656,90 +406,30 @@ o<!DOCTYPE html>
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">ShamSy</div>
+            <a href="index.html" class="logo">ShamSy</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#geschichte">Geschichte</a></li>
-                <li><a href="#projekte">Aktuelle Projekte</a></li>
-                <li><a href="#vergangene-projekte">Projekte vor 2024</a></li>
-                <li><a href="#mitmachen"; href="#spenden">Mitmachen</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="geschichte.html">Geschichte</a></li>
+                <li><a href="projekte.html">Aktuelle Projekte</a></li>
+                <li><a href="vergangene-projekte.html">Projekte vor 2024</a></li>
+                <li><a href="mitmachen.html">Mitmachen</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <img src="./images/hero-destruction.jpg" alt="Zerstörung in Syrien" class="hero-bg">
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Shams Syria e.V.</h1>
-             <p>Syrien ist ein Land voller Narben – <strong>14 Jahre Krieg, 55 Jahre Diktatur,</strong> sowie Mangel an den wichtigsten Lebensgrundlagen.<br>
+                <p>Syrien ist ein Land voller Narben — <strong>14 Jahre Krieg, 55 Jahre Diktatur,</strong> sowie Mangel an den wichtigsten Lebensgrundlagen.<br>
                 Doch trotz all dieser Dunkelheit gibt es Hoffnung: Menschen, die geblieben sind. Menschen, die zurückkehren. Menschen wie wir, die <strong>Brücken zwischen der Welt und einem zerstörten Syrien</strong> schlagen.<br>
                 Wir unterstützen aus Deutschland, in dem wir auch Zuhause sind.</p>
                 <div class="cta-buttons">
-                    <a href="#projekte" class="btn btn-primary">Unsere Projekte</a>
-                    <a href="#mitmachen" class="btn btn-secondary">Jetzt helfen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Unsere Geschichte -->
-    <section id="geschichte" class="geschichte">
-        <div class="container">
-            <h2 class="section-title">Unsere Geschichte</h2>
-            <p class="section-subtitle">Von eingeschränkter Menschenhilfe unter einer grausamen Diktatur zur offiziellen Mission des Wiederaufbaus</p>
-            
-            <!-- Destruction Images -->
-            <div class="destruction-images">
-                <div class="destruction-img">
-                    <img src="./images/douma-hospital-after.jpg" alt="Zerstörung in Syrien">
-                    <div class="img-overlay">
-                        <h3>Die Zerstörung, die wir zurücklassen mussten</h3>
-                        <p>Das war ein Krankenhaus in Rural Damskus. Aus der Luft bombardiert.</p>
-                    </div>
-                </div>
-                <div class="destruction-img">
-                    <img src="./images/hero-destruction.jpg" alt="Zerstörte Gebäude">
-                    <div class="img-overlay">
-                        <h3>Jedes zerstörte Gebäude war einmal ein Zuhause</h3>
-                        <p>Die kommende Generation soll auf eine bessere Landschaft blicken.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2011-2015</div>
-                        <h3>Die Flucht und der Schmerz</h3>
-                        <p>Wir gingen auf die Straße für Freiheit und Gerechtigkeit. Die Antwort war: Verfolgung, Folter und Bomben. Rund sieben Millionen, ein Viertel der Bevölkerung, mussten in die Sicherheit fliehen - manche sowie wir nach Deutschland. Aber unser Herz blieb in Syrien und mit denen, die nicht fliehen konnten.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2015-2024</div>
-                        <h3>Hilfe im Schatten der Angst</h3>
-                        <p>Trotz der Gefahr für uns und unsere Familien haben wir nie aufgehört zu helfen. Durch Unterstützung unserer zahlreichen lokalen Partner und NGOs konnten wir dort unterstützen, wo keine Hilfe reingelassen wurde. Viele Projekte und humanitäre Hilfsaktionen wurden geplant und realisiert. Am prägnantesten sind: Unterstützung Familien in Not, Aufbau 15 Unterkünfte für vertriebene Familien, lebensrettende Operationen für Kriegsopfer, Schulrenovierungen in zerbombten Vierteln, Planung Solar-Systeme für Dörfer und Industrie - alles heimlich, alles gegen den Willen des Regimes, alles aus Liebe und für Gerechtigkeit zu einem unterdrückten Volk.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Dezember 2024</div>
-                        <h3>Die Befreiung nach 55 Jahren!</h3>
-                        <p>Nach über einem halben Jahrhundert Diktatur ist Syrien endlich frei. Zum ersten Mal können wir ohne Angst leben, ohne Verstecken helfen, ohne Korruption wiederaufbauen. Ein neues Kapitel beginnt für unser geliebtes aber ausgebeutetes Land. Ein entscheidendes Kapitel für die Zukunft Syriens, was wir aber diesmal alle mit gestalten können.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025 und darüber hinaus</div>
-                        <h3>Die offizielle Mission: Wiederaufbau in eigener Hand. Nun aber zusammen.</h3>
-                        <p>ShamSy e.V. ist jetzt offiziell als NGO registriert - in Deutschland und in Syrien. Was einst im Schatten und über Dritte geschah, führen wir nun offiziell fort. Durch unsere Jahre in Syrien und in Deutschland haben wir diverse Erfahrung und weitgestreckte Netzwerke etabliert. Damit bauen wir unser Land nachhaltig und für Alle wieder auf. Wir haben die Hoffnung einer ganzen Generation!</p>
-                    </div>
+                    <a href="projekte.html" class="btn btn-primary">Unsere Projekte</a>
+                    <a href="mitmachen.html" class="btn btn-secondary">Jetzt helfen</a>
                 </div>
             </div>
         </div>
@@ -756,462 +446,76 @@ o<!DOCTYPE html>
         </div>
     </section>
 
-    <!-- Aktuelle Projekte -->
-    <section id="projekte" class="projekte">
+    <!-- Overview Section -->
+    <section class="overview">
         <div class="container">
-            <h2 class="section-title">Aktuelle Projekte</h2>
-            <p class="section-subtitle">Unsere Bereiche: Energie, Bildung, Gesundheit - für einen nachhaltigen Wiederaufbau, mit und für die Menschen</p>
+            <h2 class="section-title">Entdecken Sie ShamSy</h2>
+            <p class="section-subtitle">Erfahren Sie mehr über unsere Mission, Projekte und wie Sie helfen können</p>
             
-            <p class="section-title">Kleinprojekte</p>
-            
-            <div class="projekte-grid">
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/help.jpg" alt="Solar-System">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Monatsgehalt an Familie in Not schenken</h3>
-                         <h3>80 € - einmalig</h3>
-                        <p>JA! Tatsächlich sind die Gehälter in Syrien sehr niedrig, trotz neulicher Erhöhung seit Dezember 2024. Die Waren und Grundnahrungsmittel aber nicht. Sogar an mehreren Stellen wie in Deutschland!<br>
-                            Mit einer -für Deutschland- nicht allzu hohen Summe können Sie die Möglichkeiten einer Familie in Not für einen Monat zu verdoppeln.
-                        </p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/help.jpg" alt="Solar-System">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Kind Patenschaft - 1 Jahr Essen und Bildung</h3>
-                         <h3>13 € mtl.</h3>
-                        <p>Finanzierung von Lebensunterhalt und Bildungskosten eines Kind in Syrien. Durch direkte Kommunikation mit unseren lokalen Partnern können wir für maximale Transparenz sorgen und sicherstellen, das das Geld an den richtigen Stellen kommt.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/help.jpg" alt="Solar-System">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Schule Rehabilitierung - Der El-Asafir</h3>
-                         <h3>5.000 € (Teilspenden möglich!)</h3>
-                        <p>Unterstützung und Weiterbildung des Bildungskaders, Sanierung und Reparatur der Schule sowie Sicherung ihrer Versorgung.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-donate">Jetzt spenden</a>
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <br>
-            <br>
-            <p class="section-title">Großprojekte: Für Sponsors und Crowd Funding (Teilspenden möglich!)</p>
-            
-            <div class="projekte-grid">
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/pv-sys.jpg" alt="Solar-System">
-                        <div class="projekt-tag">Energie & Bildung</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Der El-Asafir Gemeinschaftsinfrastruktur</h3>
-                         <h3>400.000 €</h3>
-                        <p>250 kW Solarsystem für eine ländliche Schule, landwirtschaftlichen Hub und Wohnhäuser. Über 10.000 Menschen, 500 Schüler und 50 landwirtschaftliche Betriebe erhalten stabile Elektrizität für Bildung und Produktion.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-donate">Jetzt spenden</a>
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                        <div class="projekt-stats">
-                            <div class="stat">
-                                <span class="stat-number">10.000</span>
-                                <div class="stat-label">Menschen mit Strom versorgen</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">500+</span>
-                                <div class="stat-label">Schüler mit Strom versorgen</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">>50</span>
-                                <div class="stat-label">landwirtschaftliche Betriebe mit Strom versorgen</div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Unsere Geschichte</h3>
+                    <p>Von der Flucht 2011 bis zur offiziellen Mission 2025. Erfahren Sie, wie wir trotz Gefahr nie aufgehört haben zu helfen und nun endlich frei agieren können.</p>
+                    <a href="geschichte.html" class="card-btn">Geschichte lesen</a>
                 </div>
 
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/douma-hospital-after.jpg" alt="Douma Hospital">
-                        <div class="projekt-tag">Gesundheit</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Douma National Hospital Renovierung</h3>
-                         <h3>350.000 €</h3>
-                        <p>Wiederherstellung Teil der Kapazitäten eines Krankenhauses, das über 1 Million Patienten jährlich versorgt. Das Krankenhaus, nach 12.2024 mit Dronenaufnahme dokumentiert, wurde vom alten Regime komplett bombardiert. Unser Partner NGO (Al-Sahha al-Khairiyah) in Douma hat nach der Zerstörung eine Multi-Fachklinik eingerichtet und will das weiterbauen und zu einem Krankenhaus rehabilitieren. Heute wollen wir mit dem Wiederaufbau unterstützen und planen Anschaffung medizinischer Geräten z.B., CT-Scanner und einem voll-integrierten Solarsystem.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-donate">Jetzt spenden</a>
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                        <div class="projekt-stats">
-                            <div class="stat">
-                                <span class="stat-number">1 Mio+</span>
-                                <div class="stat-label">Patienten/Jahr</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <div class="stat-label">Notwendig</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <div class="stat-label">Nachhaltig</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="overview-card">
+                    <h3>Aktuelle Projekte</h3>
+                    <p>Energie, Bildung, Gesundheit - unsere laufenden Projekte für nachhaltigen Wiederaufbau. Von Kleinprojekten bis zu Großinfrastruktur.</p>
+                    <a href="projekte.html" class="card-btn">Projekte ansehen</a>
                 </div>
 
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/schule.jpg" alt="Schule Renovierung">
-                        <div class="projekt-tag">Bildung</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Renovierung von 5 Schulen in Douma</h3>
-                         <h3>250.000 €</h3>
-                        <p>Sanierung von Schulen zu sicheren, hochwertigen Standards. 3.000+ Schüler erhalten verbesserte Bildungsumgebungen mit modernen Klassenzimmern, sanitären Anlagen und barrierefreiem Zugang.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-donate">Jetzt spenden</a>
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                        <div class="projekt-stats">
-                            <div class="stat">
-                                <span class="stat-number">3000+</span>
-                                <div class="stat-label">Schüler</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">5</span>
-                                <div class="stat-label">Schulen</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <div class="stat-label">Zukunftssicher</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="overview-card">
+                    <h3>Vergangene Erfolge</h3>
+                    <p>15 Shelters, medizinische Operationen, Schulrenovierungen - unsere Erfolge vor der Befreiung, trotz Angst und Verfolgung.</p>
+                    <a href="vergangene-projekte.html" class="card-btn">Erfolge entdecken</a>
                 </div>
 
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/livestock.jpg" alt="Schule Renovierung">
-                        <div class="projekt-tag">Landwirtschaft</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Wiederherstellung der Lebensgrundlagen durch Viehzucht und Landwirtschaft</h3>
-                         <h3>65.000 €</h3>
-                        <p>Bereitstellung von Nutztieren und Wiederherstellung von Ackerland zur Wiederbelebung lokaler Nahrungsmittelproduktion und Einkommenssteigerung. Durch die Zusammenarbeit mit örtlichen Komitees erfolgt eine gezielte Unterstützung bedürftiger Familien. Das Ziel ist die Förderung nachhaltiger Selbstständigkeit anstelle kurzfristiger Hilfsleistung.</p>
-                        <div class="projekt-actions">
-                            <a href="#mitmachen" class="btn btn-small btn-donate">Jetzt spenden</a>
-                            <a href="#mitmachen" class="btn btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                        <div class="projekt-stats">
-                            <div class="stat">
-                                <span class="stat-number">10</span>
-                                <div class="stat-label">Familien</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <div class="stat-label">Nachhaltig</div>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <div class="stat-label">Zukunftssicher</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mitmachen -->
-    <section id="mitmachen" class="mitmachen-section">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300; text-align: center;">Unterstützen Sie uns</h2>
-            <p style="font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; text-align: center;">
-                Gemeinsam können wir Syrien wieder aufbauen. Jeder Beitrag zählt.
-            </p>
-
-            <!-- Spenden-Statistiken -->
-            <div class="spenden-stats">
-                <h3 style="margin-bottom: 1rem;">Bisherige Spendensumme</h3>
-                <div class="total-amount">500 €</div>
-                <p style="margin-bottom: 0;">Stand: September 2025</p>
-                
-                <div class="stats-breakdown">
-                    <div class="breakdown-item">
-                        <div class="breakdown-amount">100 €</div>
-                        <div>Mitgliedsbeiträge</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="breakdown-amount">300 €</div>
-                        <div>Projekt-Spenden</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="breakdown-amount">100 €</div>
-                        <div>ShamSy-Spenden</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="breakdown-amount">0 €</div>
-                        <div>Fördermittel</div>
-                    </div>
-                </div>
-
-                <!-- Mitgliederzahl -->
-                <div style="text-align: center; margin-top: 2rem; font-size: 1.1rem;">
-                    <strong>20 aktive Mitglieder | 100 unterstützende Mitglieder</strong>
-                </div>
-            </div>
-
-            <!-- Spendenoptionen -->
-            <div class="options-grid">
-                <!-- Aktive Mitgliedschaft -->
-                <div class="option-card">
-                    <h3>Aktive Mitgliedschaft</h3>
-                    <p>Werde Teil unseres Teams und gestalte aktiv den Wiederaufbau Syriens mit. Als aktives Mitglied hast Du Stimmrecht und kannst bei Entscheidungen mitwirken.</p>
-                    <p><strong>Mitgliedsbeitrag: 5€/Monat</strong></p>
-                    <div class="contact-info">
-                        <strong>So geht's:</strong><br>
-                        Sende uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Aktive Mitgliedschaft" und wir senden Dir die Unterlagen zu.
-                    </div>
-                    <a href="mailto:info.shamsyr@gmail.com?subject=Aktive%20Mitgliedschaft" class="btn-option">Jetzt Mitglied werden</a>
-                </div>
-
-                <!-- Unterstützende Mitgliedschaft -->
-                <div class="option-card">
-                    <h3>Unterstützende Mitgliedschaft</h3>
-                    <p>Tritt ShamSy bei, um bei Renovierungsaktionen, Aufbauarbeiten oder humanitären Aktionen teilnehmen zu können. Perfekt für alle, die praktisch oder organisatorisch helfen möchten.</p>
-                    <p><strong>Beitragsfrei - nur Deine Engagement zählt!</strong></p>
-                    <div class="contact-info">
-                        <strong>So geht's:</strong><br>
-                        Sende uns eine E-Mail an <strong>info.shamsyr@gmail.com</strong> mit dem Betreff "Unterstützende Mitgliedschaft" und Deine Interessen/Fähigkeiten.
-                    </div>
-                    <a href="mailto:info.shamsyr@gmail.com?subject=Unterstützende%20Mitgliedschaft" class="btn-option">Jetzt mitmachen</a>
-                </div>
-
-                <!-- ShamSy Spenden -->
-                <div class="option-card">
-                    <h3>ShamSy-Spenden</h3>
-                    <p>Unterstützen Sie unseren Verein direkt für Verwaltung, neue Projekte und dringende Hilfsmaßnahmen. Wählen Sie zwischen Einmalspende oder Dauerauftrag.</p>
-                    
-                    <div style="margin: 1.5rem 0;">
-                        <label style="display: block; margin-bottom: 1rem;"><strong>Einmalspende:</strong></label>
-                        <div class="amount-input">
-                            <input type="number" id="einmalspende" placeholder="Betrag" min="1">
-                            <span>€</span>
-                        </div>
-                    </div>
-
-                    <div style="margin: 1.5rem 0;">
-                        <label style="display: block; margin-bottom: 1rem;"><strong>Monatlicher Dauerauftrag:</strong></label>
-                        <div class="amount-input">
-                            <input type="number" id="dauerauftrag" placeholder="Betrag" min="1" oninput="calculateYearly()">
-                            <span>€/Monat</span>
-                        </div>
-                        <div class="yearly-calc" id="yearly-amount"></div>
-                    </div>
-
-                    <div class="contact-info">
-                        <strong>Bankverbindung:</strong><br>
-                        ShamSy e.V.<br>
-                        IBAN: DE72 7605 0101 0015 7958 67<br>
-                        BIC: SSKNDE77XXX
-                    </div>
-                    <div style="margin-top: 1.5rem; text-align: center;">
-    <a onclick="generateTransferForm()" class="btn-option">Spenden</a>
-</div>
-
-<!-- JavaScript für Spenden-Button -->
-
-<script>
-function generateTransferForm() {
-    // Betrag aus den Eingabefeldern holen
-    const einmalspende = document.getElementById('einmalspende').value;
-    const dauerauftrag = document.getElementById('dauerauftrag').value;
-    
-    // Bestimme welcher Betrag verwendet werden soll
-    let amount = '';
-    if ('einmalspende > 0') {
-        amount = einmalspende;
-    } else if ('dauerauftrag > 0') {
-        amount = dauerauftrag;
-    } else {
-        alert('Bitte geben Sie einen Spendenbetrag ein.');
-        return;
-    }
-    
-    // URL zum Überweisungsformular mit Parametern
-    const formUrl = `./data-input/transfer.html?amount=${amount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
-    
-    // Öffne in neuem Tab
-    window.open(formUrl);
-}
-</script>
-
-<!-- Alternative: Direkter Link zu PDF-Formular -->
-
-<!-- 
-<div style="margin-top: 1.5rem; text-align: center;">
-    <a href="./data-input/transfer.pdf" target="_blank" class="btn-option" style="width: 100%; text-decoration: none; display: block;">
-        Überweisungsformular (PDF)
-    </a>
-</div>
--->
-
-<!-- Erweiterte Version: Vorausgefüllte Beträge aus der Spenden-Box
-// Alternative Funktion für vordefiniete Beträge
-function createTransferWithAmount(predefinedAmount) {
-    const formUrl = `./data-input/transfer.html?amount=${predefinedAmount}&recipient=ShamSy+e.V.&iban=DE72760501010015795867&bic=SSKNDE77XXX`;
-    window.open(formUrl, '_blank');}
--->
-                </div>
-
-                <!-- Projekt Spenden -->
-                <div class="option-card">
-                    <h3>Projekt-Spenden</h3>
-                    <p>Spenden Sie direkt für unsere aktuellen Projekte in Syrien. Ihr Geld fließt zu 100% in die Projekte vor Ort.</p>
-                    <p>Wählen Sie aus unseren aktuellen Projekten:</p>
-                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                        <li>El-Asafir Solarinfrastruktur</li>
-                        <li>Douma Hospital Renovierung</li>
-                        <li>5 Schulen in Douma</li>
-                        <li>Humanitäre Hilfe und Kleinprojekte</li>
-                    </ul>
-                    <a href="#projekte" class="btn-option">Projekte ansehen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projekte vor Befreiung -->
-    <section id="vergangene-projekte" class="vergangene-projekte">
-        <div class="container">
-            <h2 class="section-title">Projekte vor Befreiung</h2>
-            <p class="section-subtitle" style="color: #2d3436">Unsere bisherigen Erfolge im Wiederaufbau Syriens. Alles noch in Zeiten, wo Hilfe mit Angst und Gefahr verbunden war.</p>
-            <p style="text-align: center; font-size: 1.2rem; color: #2d3436; margin-bottom: 3rem;">Durch Unterstützung unserer lokalen Netzwerke und Partner NGOs</p>
-            
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <a href="projekt-shamsy2.html" style="text-decoration: none; color: inherit;">
-                        <span class="impact-number" style="font-size: 1.5rem;">15 Shelters Built</span>
-                        <div class="impact-label">Rural Damascus | 2021–2022</div>
-                    </a>
-                </div>
-
-                <div class="impact-item">
-                    <a href="projekt-shamsy3.html" style="text-decoration: none; color: inherit;">
-                        <span class="impact-number" style="font-size: 1.5rem;">Medical Operations</span>
-                        <div class="impact-label">Damascus | 2015-2023</div>
-                    </a>
-                </div>
-
-                <div class="impact-item">
-                    <a href="projekt-shamsy4.html" style="text-decoration: none; color: inherit;">
-                        <span class="impact-number" style="font-size: 1.5rem;">School Renovation</span>
-                        <div class="impact-label">Der El-Assafir | 2021–2022</div>
-                    </a>
-                </div>
-
-                <div class="impact-item">
-                    <a href="projekt-shamsy6.html" style="text-decoration: none; color: inherit;">
-                        <span class="impact-number" style="font-size: 1.5rem;">Medical Supplies</span>
-                        <div class="impact-label">Douma | 2020-2022</div>
-                    </a>
-                </div>
-
-                <div class="impact-item">
-                    <a href="projekt-shamsy7.html" style="text-decoration: none; color: inherit;">
-                        <span class="impact-number" style="font-size: 1.5rem;">Food & Workshops</span>
-                        <div class="impact-label">Rural Damascus & Eastern Ghouta | 2017–2024</div>
-                    </a>
+                <div class="overview-card">
+                    <h3>Jetzt mitmachen</h3>
+                    <p>Werden Sie Teil unserer Mission. Als Mitglied, Spender oder Unterstützer - jede Hilfe bringt Syrien seinem Wiederaufbau näher.</p>
+                    <a href="mitmachen.html" class="card-btn">Jetzt helfen</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="background: #2d3436; color: white; padding: 40px 0; text-align: center;">
+    <footer>
         <div class="container">
-            <div style="margin-bottom: 2rem;">
-                <div class="logo" style="color: #f39c12; font-size: 2rem; margin-bottom: 1rem;">ShamSy</div>
-                <p style="max-width: 500px; margin: 0 auto; color: #b2bec3;">
-                    Die Sonne Syriens - Wiederaufbau in eigener Hand
-                </p>
+            <div>
+                <div class="logo">ShamSy</div>
+                <p>Die Sonne Syriens - Wiederaufbau in eigener Hand</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                <div>
-                    <h4 style="color: #f39c12; margin-bottom: 1rem;">Kontakt</h4>
-                    <p>📧 info.shamsyr@gmail.com</p>
-                    <p>📞 +49 911 43332925</p>
-                    <p>🏠 ShamSy e.V., Nürnberg, 90425</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>info.shamsyr@gmail.com</p>
+                    <p>+49 911 43332925</p>
+                    <p>ShamSy e.V., Nürnberg, 90425</p>
                 </div>
-                <div>
-                    <h4 style="color: #f39c12; margin-bottom: 1rem;">Transparenz</h4>
-                    <p><a href="./data-input/satzung.pdf" style="color: #f8c471; text-decoration: none;">Satzung & Policies</a></p>
-                    <p><a href="./data-input/projektberichte.pdf" style="color: #f8c471; text-decoration: none;">Projektberichte</a></p>
-                    <p><a href="./data-input/finanzberichte.pdf" style="color: #f8c471; text-decoration: none;">Finanzberichte</a></p>
+                <div class="footer-section">
+                    <h4>Transparenz</h4>
+                    <a href="./data-input/satzung.pdf">Satzung & Policies</a>
+                    <a href="./data-input/projektberichte.pdf">Projektberichte</a>
+                    <a href="./data-input/finanzberichte.pdf">Finanzberichte</a>
                 </div>
-                <div>
-                    <h4 style="color: #f39c12; margin-bottom: 1rem;">Folgen Sie uns</h4>
-                    <p><a href="#" style="color: #f8c471; text-decoration: none;">Facebook</a></p>
-                    <p><a href="#" style="color: #f8c471; text-decoration: none;">Instagram</a></p>
-                    <p><a href="#" style="color: #f8c471; text-decoration: none;">LinkedIn</a></p>
+                <div class="footer-section">
+                    <h4>Folgen Sie uns</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid #636e72; padding-top: 2rem; margin-top: 2rem; color: #b2bec3;">
+            <div class="footer-bottom">
                 <p>&copy; 2025 ShamSy e.V. - Alle Rechte vorbehalten</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Jahresberechnung für Dauerauftrag
-        function calculateYearly() {
-            const monthlyAmount = document.getElementById('dauerauftrag').value;
-            const yearlyElement = document.getElementById('yearly-amount');
-            
-            if (monthlyAmount && monthlyAmount > 0) {
-                const yearly = monthlyAmount * 12;
-                yearlyElement.textContent = `Das sind ${yearly}€ pro Jahr`;
-            } else {
-                yearlyElement.textContent = '';
-            }
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Add scroll effect to navigation
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
