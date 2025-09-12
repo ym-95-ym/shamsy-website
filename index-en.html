@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShamSy e.V. - Syria's Sun - Rebuilding in Our Own Hands</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #27AE60;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Dropdown Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            color: #27AE60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        /* Image Attribution */
+        .image-attribution {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            background: linear-gradient(135deg, #27AE60 0%, #2ECC71 100%);
+            min-height: 800px;
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(39, 174, 96, 0.85), rgba(46, 204, 113, 0.8));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 200px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #27AE60;
+        }
+
+        .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #27AE60;
+            transform: translateY(-2px);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .quote {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            line-height: 1.6;
+            text-align: center;
+            font-style: italic;
+            color: #2c3e50;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            border: none;
+        }
+
+        .quote-author {
+            display: block;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #27AE60;
+            font-weight: 600;
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.6;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .overview-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .overview-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .overview-card p {
+            color: #5d6d7e;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .card-btn {
+            display: inline-block;
+            color: #27AE60;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #27AE60;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .card-btn:hover {
+            background: #27AE60;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        footer .container > div:first-child {
+            margin-bottom: 3rem;
+        }
+
+        footer .logo {
+            color: #27AE60;
+            margin-bottom: 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: #27AE60;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #27AE60;
+        }
+
+        .footer-section p {
+            color: #bdc3c7;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 968px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                padding: 0.8rem 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 280px;
+                max-width: 100%;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .footer-section {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index-en.html" class="logo">ShamSy</a>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dropdown Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index-en.html" class="active">Home</a></li>
+            <li><a href="history-en.html">Our Story</a></li>
+            <li><a href="projects-en.html">Current Projects</a></li>
+            <li><a href="past-projects-en.html">Past Projects</a></li>
+            <li><a href="join-us-en.html">Join Us</a></li>
+            <li style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                <strong style="color: #27AE60; font-size: 0.9rem;">Language:</strong>
+            </li>
+            <li><a href="index.html">Deutsch</a></li>
+            <li><a href="index-en.html">English</a></li>
+            <li><a href="index-ar.html">العربية</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="./images/hero-destruction.jpg" alt="Destruction in Syria" class="hero-bg">
+        <div class="image-attribution">Source: ShamSy Archive</div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shams Syria e.V.</h1>
+                <p>Syria is a land full of scars — <strong>14 years of war, 55 years of dictatorship,</strong> and lack of the most basic necessities of life.</p>
+                
+                <p>But despite all this darkness, there is hope: People who stayed. People who are returning. People like us, who <strong>build bridges between the world and a destroyed Syria</strong>.<br>
+                We support from Germany, which is also our home.</p>
+                <div class="cta-buttons">
+                    <a href="projects-en.html" class="btn btn-primary">Our Projects</a>
+                    <a href="join-us-en.html" class="btn btn-secondary">Help Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <blockquote class="quote">
+                "As <strong>Syrians</strong>, we can ensure the success of relevant projects and quickly realize them through our <strong>existing networks</strong>.<br>
+                 As <strong>Germans</strong>, we can design projects <strong>sustainably and contemporarily</strong> and build a bridge for integration and cooperation."
+            </blockquote>
+            <cite class="quote-author">— The ShamSy Team</cite>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="container">
+            <h2 class="section-title">Discover ShamSy</h2>
+            <p class="section-subtitle">Learn more about our mission, projects, and how you can help</p>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Our Story</h3>
+                    <p>From fleeing in 2011 to our official mission in 2025. Learn how despite danger, we never stopped helping and can now finally act freely.</p>
+                    <a href="history-en.html" class="card-btn">Read Our Story</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Current Projects</h3>
+                    <p>Energy, education, healthcare - our ongoing projects for sustainable reconstruction. From small projects to major infrastructure.</p>
+                    <a href="projects-en.html" class="card-btn">View Projects</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Past Successes</h3>
+                    <p>15 shelters, medical operations, school renovations - our achievements before liberation, despite fear and persecution.</p>
+                    <a href="past-projects-en.html" class="card-btn">Discover Successes</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Join Us Now</h3>
+                    <p>Become part of our mission. Through donations, volunteering, or partnerships - every contribution brings us closer to a rebuilt Syria.</p>
+                    <a href="join-us-en.html" class="card-btn">Join Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <div class="logo">ShamSy</div>
+                <p>Syria's Sun - Rebuilding in Our Own Hands</p>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>info.shamsyr@gmail.com</p>
+                    <p>+49 911 43332925</p>
+                    <p>ShamSy e.V., Nuremberg, 90425</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Transparency</h4>
+                    <a href="./data-input/satzung.pdf">Charter & Policies</a>
+                    <a href="./data-input/projektberichte.pdf">Project Reports</a>
+                    <a href="./data-input/finanzberichte.pdf">Financial Reports</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShamSy e.V. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            mobileNav.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+                menuBtn.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
