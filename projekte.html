@@ -24,10 +24,10 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
+        /* Navigation - NUR Logo und Hamburger */
         nav {
             background: rgba(255, 255, 255, 0.95);
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -45,33 +45,100 @@
 
         .logo {
             color: #27AE60;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .nav-links {
+        /* Hamburger Menu Button */
+        .mobile-menu-btn {
             display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.8rem;
+            border: 2px solid #27AE60;
+            border-radius: 8px;
+            background: rgba(39, 174, 96, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .nav-links a {
+        .mobile-menu-btn:hover {
+            background: rgba(39, 174, 96, 0.2);
+            border-color: #1E8449;
+        }
+
+        .mobile-menu-btn span {
+            width: 20px;
+            height: 2px;
+            background: #27AE60;
+            margin: 2px 0;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Dropdown Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-links a {
             color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.2rem;
+            padding: 1rem;
             border-radius: 12px;
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
             color: #27AE60;
             background: rgba(39, 174, 96, 0.1);
+        }
+
+        /* Image Attribution */
+        .image-attribution {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            opacity: 0.8;
         }
 
         /* Page Header */
@@ -82,7 +149,7 @@
         }
 
         .page-title {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: #2c3e50;
             margin-bottom: 1.5rem;
             font-weight: 300;
@@ -90,22 +157,23 @@
         }
 
         .page-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: #7f8c8d;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
+            padding: 0 2rem;
         }
 
-        /* Main Content */
+        /* Main Content - REDUZIERTE Abstände */
         .main-content {
-            padding: 120px 0;
+            padding: 40px 0 120px 0;
             background: white;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: clamp(2.2rem, 6vw, 2.8rem);
             margin-bottom: 2rem;
             color: #2c3e50;
             font-weight: 300;
@@ -114,21 +182,22 @@
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.4rem;
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
             color: #7f8c8d;
             margin-bottom: 4rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            padding: 0 2rem;
         }
 
         /* Projects Grid */
         .projekte-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .projekt-card {
@@ -307,7 +376,7 @@
             font-weight: 700;
         }
 
-        footer p {
+        footer > .container > p {
             max-width: 500px;
             margin: 0 auto 3rem;
             color: #bdc3c7;
@@ -328,7 +397,7 @@
 
         .footer-section h4 {
             color: #27AE60;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-size: 1.2rem;
             font-weight: 600;
         }
@@ -336,7 +405,7 @@
         .footer-section p, .footer-section a {
             color: #bdc3c7;
             text-decoration: none;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.4rem;
             display: block;
             transition: color 0.3s ease;
         }
@@ -352,18 +421,14 @@
             color: #bdc3c7;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: true;
+        /* Mobile Styles */
+        @media (max-width: 968px) {
+            .logo {
+                font-size: 1.8rem;
             }
 
-            .page-title {
-                font-size: 2.8rem;
-            }
-
-            .page-subtitle {
-                font-size: 1.2rem;
+            nav {
+                padding: 0.8rem 0;
             }
 
             .projekte-grid {
@@ -377,31 +442,50 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
-                text-align: center;
+                text-align: left;
+            }
+
+            .footer-section {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - NUR Logo und Hamburger-Menü -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">ShamSy</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="geschichte.html">Geschichte</a></li>
-                <li><a href="projekte.html" class="active">Aktuelle Projekte</a></li>
-                <li><a href="vergangene-projekte.html">Projekte vor 2024</a></li>
-                <li><a href="mitmachen.html">Mitmachen</a></li>
-            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
+
+    <!-- Dropdown Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="geschichte.html">Geschichte</a></li>
+            <li><a href="projekte.html" class="active">Aktuelle Projekte</a></li>
+            <li><a href="vergangene-projekte.html">Alte Projekte</a></li>
+            <li><a href="mitmachen.html">Mitmachen</a></li>
+            <li style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                <strong style="color: #27AE60; font-size: 0.9rem;">Sprache:</strong>
+            </li>
+            <li><a href="projekte.html">Deutsch</a></li>
+            <li><a href="sprachen/projekte-en.html">English</a></li>
+            <li><a href="sprachen/projekte-ar.html">العربية</a></li>
+        </ul>
+    </div>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title">Aktuelle Projekte</h1>
-            <p class="page-subtitle">Energie, Bildung, Gesundheit - für einen nachhaltigen Wiederaufbau, mit und für die Menschen.</p>
+            <p class="page-subtitle">Unsere Bereiche: Energie, Bildung, Gesundheit - für einen nachhaltigen Wiederaufbau, mit und für die Menschen</p>
         </div>
     </section>
 
@@ -413,7 +497,8 @@
             <div class="projekte-grid">
                 <div class="projekt-card">
                     <div class="projekt-image">
-                        <img src="./images/gehalt.jpg">
+                        <img src="./images/help.jpg" alt="Humanitäre Hilfe">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Humanitär</div>
                     </div>
                     <div class="projekt-content">
@@ -430,13 +515,14 @@
                 
                 <div class="projekt-card">
                     <div class="projekt-image">
-                        <img src="./images/children.jpg">
+                        <img src="./images/help.jpg" alt="Kinderpatenschaft">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Humanitär</div>
                     </div>
                     <div class="projekt-content">
-                        <h3>Waisenkind Patenschaft - Ein Jahr Essen und Bildung</h3>
+                        <h3>Kind Patenschaft - 1 Jahr Essen und Bildung</h3>
                         <div class="projekt-price">13 € mtl.</div>
-                        <p>Finanzierung von Lebensunterhalt und Bildungskosten eines Waisenindes in Syrien. Durch direkte Kommunikation mit unseren lokalen Partnern können wir für maximale Transparenz sorgen und sicherstellen, das das Geld an den richtigen Stellen kommt.</p>
+                        <p>Finanzierung von Lebensunterhalt und Bildungskosten eines Kind in Syrien. Durch direkte Kommunikation mit unseren lokalen Partnern können wir für maximale Transparenz sorgen und sicherstellen, das das Geld an den richtigen Stellen kommt.</p>
                         <div class="projekt-actions">
                             <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
                         </div>
@@ -445,71 +531,8 @@
                 
                 <div class="projekt-card">
                     <div class="projekt-image">
-                        <img src="./images/kindergruppe.jpg">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Schönen Schulanfang für ein Kind ermöglichen</h3>
-                        <div class="projekt-price">40 € - einmalig</div>
-                        <p>Kleidung, Rücksack, Hefte, Stifte uvm. für einen ordentlichen Schulanfang besorgen, dass Kinder in Syrien mit Hoffnung aufs Jahr blicken können.
-                        </p>
-                        <div class="projekt-actions">
-                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/operation.jpg">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Medizinische Behandlung finanzieren</h3>
-                        <div class="projekt-price">beliebig</div>
-                        <p>Ermöglichen Sie eine medizinische Behandlung oder Operation für eine Person in Not! Es gibt zahlreiche Menschen in Damaskus und Umgebung ohne Geld für medizinische Behandlung. Eine Versicherung gibt es auch nicht. Sie können uns eine beliebige Summe spenden und wir stellen sicher, dass damit eine medizinise Behandlung/Operation bezahlt wird. Ihr Beitrag kann Leben retten.
-                        </p>
-                        <div class="projekt-actions">
-                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/water.jpg">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Anschaffung Trinkwasserbrunnen für Dorf</h3>
-                        <div class="projekt-price">1.000 € (Teilspenden möglich!)</div>
-                        <p>Anschaffung und Installation eines Trinkwasserbrunnens für einen kleinen Dorf, besonders wichtig für die extreme Hitze aufgrund vom Klimawandel und Mangel an Trinkmöglichkeiten in Syrien.
-                        </p>
-                        <div class="projekt-actions">
-                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/operation.jpg">
-                        <div class="projekt-tag">Humanitär</div>
-                    </div>
-                    <div class="projekt-content">
-                        <h3>Anschaffung medizinischer Geräte für Krankenhäuser</h3>
-                        <div class="projekt-price">beliebig - für Geräte ab 6.000 € (Teilspenden möglich!)</div>
-                        <p>Wir haben zahlreiche Angebote von Krankenhäusern und Partner NGOs über diverse medizinische Geräte, die bei der Rehabilitierung von zerstörten Krankenhäusern fehlen. Darunter Bildgebungsgeräte (CT, Röntgen, Röntgen-Thorax, EKG) für Kliniken die Milionen von Menschen versorgen (Douma, Ibn El-Nafis, Qattana, uvm.). Sie können uns eine beliebige Summe spenden, die in einem Topf fürs nächste Gerät geht. Oder fragen Sie uns per Mail, was als nächste ansteht und was das kosten soll.
-                        </p>
-                        <div class="projekt-actions">
-                            <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projekt-card">
-                    <div class="projekt-image">
-                        <img src="./images/schule-kind.jpg" alt="Schule Rehabilitierung">
+                        <img src="./images/schule.jpg" alt="Schule Rehabilitierung">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Bildung</div>
                     </div>
                     <div class="projekt-content">
@@ -530,6 +553,7 @@
                 <div class="projekt-card">
                     <div class="projekt-image">
                         <img src="./images/pv-sys.jpg" alt="Solar-System">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Energie & Bildung</div>
                     </div>
                     <div class="projekt-content">
@@ -559,6 +583,7 @@
                 <div class="projekt-card">
                     <div class="projekt-image">
                         <img src="./images/douma-hospital-after.jpg" alt="Douma Hospital">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Gesundheit</div>
                     </div>
                     <div class="projekt-content">
@@ -588,12 +613,13 @@
                 <div class="projekt-card">
                     <div class="projekt-image">
                         <img src="./images/schule.jpg" alt="Schule Renovierung">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Bildung</div>
                     </div>
                     <div class="projekt-content">
                         <h3>Renovierung von 5 Schulen in Douma</h3>
                         <div class="projekt-price">250.000 €</div>
-                        <p>Sanierung von fünf Schulen in Douma, Rural Damaskus beispielsweise auf Projektbild zu sehen. 3.000+ Schüler erhalten verbesserte Bildungsumgebungen mit benutzbaren Klassenzimmern, sanitären Anlagen und sicheren Schulzugang.</p>
+                        <p>Sanierung von Schulen zu sicheren, hochwertigen Standards. 3.000+ Schüler erhalten verbesserte Bildungsumgebungen mit modernen Klassenzimmern, sanitären Anlagen und barrierefreiem Zugang.</p>
                         <div class="projekt-actions">
                             <a href="mitmachen.html" class="btn-small btn-participate">Projekt mitmachen</a>
                         </div>
@@ -616,7 +642,8 @@
 
                 <div class="projekt-card">
                     <div class="projekt-image">
-                        <img src="./images/farmer.jpg" alt="Landwirtschaft">
+                        <img src="./images/livestock.jpg" alt="Landwirtschaft">
+                        <div class="image-attribution">Quelle: ShamSy Archive</div>
                         <div class="projekt-tag">Landwirtschaft</div>
                     </div>
                     <div class="projekt-content">
@@ -660,15 +687,18 @@
         <div class="container">
             <div>
                 <div class="logo">ShamSy</div>
-                <a>Die Sonne Syriens - Wiederaufbau in eigener Hand</a>
+                <p>Die Sonne Syriens - Wiederaufbau in eigener Hand</p>
             </div>
             
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Kontakt</h4>
-                    <a>info.shamsyr@gmail.com</a>
-                    <a>+49 911 43332925</a>
-                    <a>ShamSy e.V., Nürnberg, 90425</a>
+                    <h4>
+                        <br>
+                        Kontakt
+                    </h4>
+                    <p>info.shamsyr@gmail.com</p>
+                    <p>+49 911 43332925</p>
+                    <p>ShamSy e.V., Nürnberg, 90425</p>
                 </div>
                 <div class="footer-section">
                     <h4>Transparenz</h4>
@@ -691,16 +721,41 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                menuBtn.classList.remove('active');
+            } else {
+                mobileNav.classList.add('active');
+                menuBtn.classList.add('active');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileNav').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
         // Add scroll effect to navigation
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
-
-</body>
-</html>
+                nav
