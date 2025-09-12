@@ -24,10 +24,10 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
+        /* Navigation - NUR Logo und Hamburger */
         nav {
             background: rgba(255, 255, 255, 0.95);
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -45,33 +45,100 @@
 
         .logo {
             color: #27AE60;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .nav-links {
+        /* Hamburger Menu Button */
+        .mobile-menu-btn {
             display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.8rem;
+            border: 2px solid #27AE60;
+            border-radius: 8px;
+            background: rgba(39, 174, 96, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(39, 174, 96, 0.2);
+            border-color: #1E8449;
+        }
+
+        .mobile-menu-btn span {
+            width: 20px;
+            height: 2px;
+            background: #27AE60;
+            margin: 2px 0;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Dropdown Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
             list-style: none;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
             gap: 1rem;
         }
 
-        .nav-links a {
+        .mobile-nav-links a {
             color: #2c3e50;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.2rem;
+            padding: 1rem;
             border-radius: 12px;
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
             color: #27AE60;
             background: rgba(39, 174, 96, 0.1);
+        }
+
+        /* Image Attribution */
+        .image-attribution {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            opacity: 0.8;
         }
 
         /* Hero Section */
@@ -83,6 +150,8 @@
             color: white;
             position: relative;
             background: linear-gradient(135deg, #27AE60 0%, #2ECC71 100%);
+            min-height: 800px;
+            padding: 120px 0 80px 0;
         }
 
         .hero-bg {
@@ -108,23 +177,24 @@
         .hero-content {
             position: relative;
             z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            margin-bottom: 2.5rem;
             color: white;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             font-weight: 300;
             letter-spacing: -1px;
+            line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
             margin-bottom: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
             color: white;
             line-height: 1.8;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
@@ -183,11 +253,11 @@
             background: linear-gradient(135deg, #E8F5E8 0%, #D5F4E6 100%);
             color: #2c3e50;
             text-align: center;
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .quote {
-            font-size: 2rem;
+            font-size: clamp(1.3rem, 4vw, 2rem);
             font-style: italic;
             margin-bottom: 2rem;
             max-width: 1000px;
@@ -196,23 +266,24 @@
             line-height: 1.6;
             font-weight: 300;
             color: #2c3e50;
+            padding: 0 2rem;
         }
 
         .quote-author {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: 600;
             color: #27AE60;
         }
 
         /* Overview Section */
         .overview {
-            padding: 120px 0;
-            background: white;
+            padding: 60px 0 120px 0;
+            background: linear-gradient(135deg, #E8F5E8 0%, #D5F4E6 100%);
         }
 
         .section-title {
             text-align: center;
-            font-size: 3.2rem;
+            font-size: clamp(2.5rem, 6vw, 3.2rem);
             margin-bottom: 2rem;
             color: #2c3e50;
             font-weight: 300;
@@ -221,19 +292,20 @@
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.4rem;
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
             color: #7f8c8d;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            padding: 0 2rem;
         }
 
         .overview-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
@@ -314,7 +386,7 @@
             font-weight: 700;
         }
 
-        footer p {
+        footer > .container > p {
             max-width: 500px;
             margin: 0 auto 3rem;
             color: #bdc3c7;
@@ -335,7 +407,7 @@
 
         .footer-section h4 {
             color: #27AE60;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-size: 1.2rem;
             font-weight: 600;
         }
@@ -343,7 +415,7 @@
         .footer-section p, .footer-section a {
             color: #bdc3c7;
             text-decoration: none;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.4rem;
             display: block;
             transition: color 0.3s ease;
         }
@@ -359,18 +431,22 @@
             color: #bdc3c7;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: true;
+        /* Mobile Styles */
+        @media (max-width: 968px) {
+            .logo {
+                font-size: 1.8rem;
             }
 
-            .hero-content h1 {
-                font-size: 3rem;
+            nav {
+                padding: 0.8rem 0;
             }
 
-            .hero-content p {
-                font-size: 1.2rem;
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-content {
+                padding: 1rem;
             }
 
             .cta-buttons {
@@ -380,14 +456,7 @@
 
             .btn {
                 width: 280px;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .quote {
-                font-size: 1.5rem;
+                max-width: 100%;
             }
 
             .overview-grid {
@@ -397,35 +466,56 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
-                text-align: center;
+                text-align: left;
+            }
+
+            .footer-section {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - NUR Logo und Hamburger-Menü -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">ShamSy</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="geschichte.html">Geschichte</a></li>
-                <li><a href="projekte.html">Aktuelle Projekte</a></li>
-                <li><a href="vergangene-projekte.html">Alte Projekte</a></li>
-                <li><a href="mitmachen.html">Mitmachen</a></li>
-            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Dropdown Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="geschichte.html">Geschichte</a></li>
+            <li><a href="projekte.html">Aktuelle Projekte</a></li>
+            <li><a href="vergangene-projekte.html">Alte Projekte</a></li>
+            <li><a href="mitmachen.html">Mitmachen</a></li>
+            <li style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                <strong style="color: #27AE60; font-size: 0.9rem;">Sprache:</strong>
+            </li>
+            <li><a href="index.html">Deutsch</a></li>
+            <li><a href="sprachen/index-en.html">English</a></li>
+            <li><a href="sprachen/index-ar.html">العربية</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
-        <img src="./images/hero-destruction.jpg" class="hero-bg">
+        <img src="./images/hero-destruction.jpg" alt="Zerstörung in Syrien" class="hero-bg">
+        <div class="image-attribution">Quelle: ShamSy Archive</div>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Shams Syria e.V.</h1>
-                <p>Syrien ist ein Land voller Narben — <strong>14 Jahre Krieg, 55 Jahre Diktatur,</strong> sowie Mangel an den wichtigsten Lebensgrundlagen.<br><br>
-                Trotz all dieser Dunkelheit gibt es Hoffnung: Menschen, die geblieben sind. Menschen, die zurückkehren. Menschen wie wir, die <strong>Brücken zwischen der Welt und einem zerstörten Syrien</strong> schlagen.<br>
+                <p>Syrien ist ein Land voller Narben — <strong>14 Jahre Krieg, 55 Jahre Diktatur,</strong> sowie Mangel an den wichtigsten Lebensgrundlagen.</p>
+                
+                <p>Doch trotz all dieser Dunkelheit gibt es Hoffnung: Menschen, die geblieben sind. Menschen, die zurückkehren. Menschen wie wir, die <strong>Brücken zwischen der Welt und einem zerstörten Syrien</strong> schlagen.<br>
                 Wir unterstützen aus Deutschland, in dem wir auch Zuhause sind.</p>
                 <div class="cta-buttons">
                     <a href="projekte.html" class="btn btn-primary">Unsere Projekte</a>
@@ -450,30 +540,30 @@
     <section class="overview">
         <div class="container">
             <h2 class="section-title">Entdecken Sie ShamSy</h2>
-            <p class="section-subtitle">Erfahren Sie mehr über uns und unsere Mission, Projekte und wie Sie helfen können</p>
+            <p class="section-subtitle">Erfahren Sie mehr über unsere Mission, Projekte und wie Sie helfen können</p>
             
             <div class="overview-grid">
                 <div class="overview-card">
                     <h3>Unsere Geschichte</h3>
-                    <p>ShamSy vor und nach der Befreiung Syriens in Dezember 2024 von einer 55 jährigen Diktatur.<br>Erfahren Sie, wie wir trotz Gefahr nie aufgehört haben zu helfen. Nun können wir aber endlich frei agieren</p>
+                    <p>Von der Flucht 2011 bis zur offiziellen Mission 2025. Erfahren Sie, wie wir trotz Gefahr nie aufgehört haben zu helfen und nun endlich frei agieren können.</p>
                     <a href="geschichte.html" class="card-btn">Geschichte lesen</a>
                 </div>
 
                 <div class="overview-card">
                     <h3>Aktuelle Projekte</h3>
-                    <p>Energie, Bildung, Gesundheit - unsere laufenden Projekte für den nachhaltigen Wiederaufbau.<br>Von Kleinprojekten bis zu Großinfrastruktur.</p>
+                    <p>Energie, Bildung, Gesundheit - unsere laufenden Projekte für nachhaltigen Wiederaufbau. Von Kleinprojekten bis zu Großinfrastruktur.</p>
                     <a href="projekte.html" class="card-btn">Projekte ansehen</a>
                 </div>
 
                 <div class="overview-card">
                     <h3>Vergangene Erfolge</h3>
-                    <p> Humanitäre Hilfsaktionen, Aufbau von Notunterkünften, medizinische Operationen, Schulrenovierungen uvm. - unsere Erfolge vor der Befreiung, trotz Angst und Verfolgung.</p>
+                    <p>15 Shelters, medizinische Operationen, Schulrenovierungen - unsere Erfolge vor der Befreiung, trotz Angst und Verfolgung.</p>
                     <a href="vergangene-projekte.html" class="card-btn">Erfolge entdecken</a>
                 </div>
 
                 <div class="overview-card">
                     <h3>Jetzt mitmachen</h3>
-                    <p>Werden Sie aktiver oder passiver Teil unserer Mission. Als Mitglied, Spender oder Unterstützer - jede Hilfe bringt Syrien seinem Wiederaufbau näher.</p>
+                    <p>Werden Sie Teil unserer Mission. Als Mitglied, Spender oder Unterstützer - jede Hilfe bringt Syrien seinem Wiederaufbau näher.</p>
                     <a href="mitmachen.html" class="card-btn">Jetzt helfen</a>
                 </div>
             </div>
@@ -485,15 +575,18 @@
         <div class="container">
             <div>
                 <div class="logo">ShamSy</div>
-                <a>Die Sonne Syriens - Wiederaufbau in eigener Hand</a>
+                <p>Die Sonne Syriens - Wiederaufbau in eigener Hand</p>
             </div>
             
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Kontakt</h4>
-                    <a>info.shamsyr@gmail.com</a>
-                    <a>+49 911 43332926</a>
-                    <a>ShamSy e.V., Nürnberg, 90425</a>
+                    <h4>
+                        <br>
+                        Kontakt
+                    </h4>
+                    <p>info.shamsyr@gmail.com</p>
+                    <p>+49 911 43332925</p>
+                    <p>ShamSy e.V., Nürnberg, 90425</p>
                 </div>
                 <div class="footer-section">
                     <h4>Transparenz</h4>
@@ -516,6 +609,39 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                menuBtn.classList.remove('active');
+            } else {
+                mobileNav.classList.add('active');
+                menuBtn.classList.add('active');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileNav').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+            });
+        });
+
         // Add scroll effect to navigation
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
